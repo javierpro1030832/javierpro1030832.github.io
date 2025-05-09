@@ -1,0 +1,105 @@
+body {
+    background-color: #fbe1e1;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.5s ease;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card.closed {
+    transform: rotateY(180deg); /* Carta cerrada */
+}
+
+.card-inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.open-btn {
+    font-size: 1.5em;
+    background-color: #f28a8a;
+    color: white;
+    border: none;
+    padding: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    text-align: center; /* Asegura que el texto se alinee correctamente */
+}
+
+.open-btn:hover {
+    background-color: #d93e80;
+    transform: scale(1.1);
+}
+
+.card-content {
+    display: none;
+    color: #4a4a4a;
+    padding: 20px;
+    font-size: 1.2em;
+    line-height: 1.6;
+    text-align: left;
+    overflow-y: auto;  /* Permite desplazamiento vertical */
+    max-height: 300px;  /* Máximo alto de la carta */
+}
+
+.card.open .card-content {
+    display: block; /* Muestra el contenido de la carta */
+}
+
+#hearts {
+    position: relative;
+    height: 100px;
+    display: none;
+}
+
+.heart {
+    position: absolute;
+    color: #f28a8a;
+    font-size: 50px;
+    animation: floatHeart 3s infinite;
+}
+
+@keyframes floatHeart {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-30px) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5);
+    }
+}
